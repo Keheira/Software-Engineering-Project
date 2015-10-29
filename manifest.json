@@ -4,10 +4,10 @@
 	"description": "Keep track of the amount of time a user spends on links",
 	"version": "1.0",
 
-	// "browser_action":{
+	 "browser_action":{
 	// 	"default_icon": "icon.png",
-	// 	"default_popup": "index.html"
-	// },
+	 	"default_popup": "index.html"
+	 },
 
 	"background": {
 		"scripts": ["listen.js"],
@@ -15,7 +15,7 @@
 	},
 
 	"permissions": [
-		"activeTab"
+		"activeTab", "tabs"
 	],
 
 	"content_security_policy": "script-src 'self' https://ajax.googleapis.com https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'"
