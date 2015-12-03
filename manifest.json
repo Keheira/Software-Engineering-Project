@@ -2,20 +2,31 @@
 	"manifest_version": 2,
 	"name": "Surf Timer",
 	"description": "Keep track of the amount of time a user spends on links",
-	"version": "1.0",
-
-	 "browser_action":{
-	// 	"default_icon": "icon.png",
+	"version": "1.1",
+	"browser_action":{
 	 	"default_popup": "index.html"
 	 },
-
 	"background": {
+		// "page": "index.html",
 		"scripts": ["listen.js"],
-		"persistent": false
+		"persistent": true
 	},
-
+	"chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "content_scripts": [
+        {
+            "js": ["timer.js"],
+            "matches": ["*://*/*"]
+        }
+    ],
 	"permissions": [
-		"activeTab", "tabs", "<all_urls>"
+		"activeTab",
+		"tabs",
+		"<all_urls>",
+		"history",
+		"background",
+		"storage"
 	],
 
 	"content_security_policy": "script-src 'self' https://ajax.googleapis.com https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'"
